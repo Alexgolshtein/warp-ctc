@@ -1,17 +1,15 @@
 # PyTorch bindings for Warp-ctc
 
-# Based on [SeanNaren/warp-ctc](https://github.com/SeanNaren/warp-ctc)
+## Based on [SeanNaren/warp-ctc](https://github.com/SeanNaren/warp-ctc)
 
-# Moified by isses in [hzli-ucas/warp-ctc](https://github.com/hzli-ucas/warp-ctc) description
+## Moified by isses in [hzli-ucas/warp-ctc](https://github.com/hzli-ucas/warp-ctc) description
 
-# Sucessfully built with: Win10 cuda10.2 pip3 python3.8 pytorch 1.5 VS2019(with c++)
+## Sucessfully built with: Win10 cuda10.2 pip3 python3.8 pytorch 1.5 VS2019(with c++)
 
-## Follow all steps in [Specific Modifications](#specific-modifications) section if any issus occured
-
-# PyTorch bindings for Warp-ctc built with VS2017
+### Follow all steps in [Specific Modifications](#specific-modifications) section if any issus occured
 
 This is an extension onto the original repo found [here](https://github.com/baidu-research/warp-ctc).
-This is a branch for Visual Studio 2017 building, with the errors fixed while installing from pytorch_bindings branch. The installation has been successfully performed in the following environments:
+This is a branch for Visual Studio 2017/2019 building, with the errors fixed while installing from pytorch_bindings branch. The installation has been successfully performed in the following environments:
 
 >Win10 cuda10.2 pip3 python3.8 pytorch1.5 vs2019
 
@@ -27,8 +25,10 @@ Install [PyTorch](https://github.com/pytorch/pytorch#installation) v1.0 or highe
 
 From within a new warp-ctc clone you could build WarpCTC like this:
 
+You may clone the original repo (git clone https://github.com/SeanNaren/warp-ctc.git) and follow the nex steps or clone thes repo.
+
 ```cmd
-git clone -b vs2017 https://github.com/hzli-ucas/warp-ctc.git
+git clone https://github.com/Alexgolshtein/warp-ctc.git
 cd warp-ctc
 mkdir build
 cd build
