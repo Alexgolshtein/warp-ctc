@@ -6,17 +6,20 @@ from setuptools import setup, find_packages
 from torch.utils.cpp_extension import BuildExtension, CppExtension
 import torch
 
-extra_compile_args = ['-std=c++11', '-fPIC']
+extra_compile_args = ['-std=c++14', '-fPIC']
 warp_ctc_path = "../build/Release"
 
-lib_ext = ".dll"
+if platform.system() == 'Darwin':
+    lib_ext = ".dylib"
+else:
+    lib_ext = ".dll"
 
 if "WARP_CTC_PATH" in os.environ:
     warp_ctc_path = os.environ["WARP_CTC_PATH"]
 if not os.path.exists(os.path.join(warp_ctc_path, "warpctc" + lib_ext)):
     print(("Could not find warpctc.dll in {}.\n"
            "Build warp-ctc and set WARP_CTC_PATH to the location of"
-           " warpctc.dll (default is '%s')").format(warp_ctc_path))
+           " warpctc.dll (default is '../build/Relese')").format(warp_ctc_path))
     sys.exit(1)
 
 include_dirs = [os.path.realpath('../include')]

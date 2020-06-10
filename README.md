@@ -1,7 +1,20 @@
+# PyTorch bindings for Warp-ctc
+
+# Based on [SeanNaren/warp-ctc](https://github.com/SeanNaren/warp-ctc)
+
+# Moified by isses in [hzli-ucas/warp-ctc](https://github.com/hzli-ucas/warp-ctc) description
+
+# Sucessfully built with: Win10 cuda10.2 pip3 python3.8 pytorch 1.5 VS2019(with c++)
+
+## Follow all steps in [Specific Modifications](#specific-modifications) section if any issus occured
+
 # PyTorch bindings for Warp-ctc built with VS2017
 
 This is an extension onto the original repo found [here](https://github.com/baidu-research/warp-ctc).
 This is a branch for Visual Studio 2017 building, with the errors fixed while installing from pytorch_bindings branch. The installation has been successfully performed in the following environments:
+
+>Win10 cuda10.2 pip3 python3.8 pytorch1.5 vs2019
+
 >Win10 cuda10.1 anaconda3 python3.7 pytorch1.0 vs2017
 
 >Win7 cuda9.0 anaconda3 pytorch3.7 pytorch1.0 vs2015
@@ -13,24 +26,39 @@ Most of our modifications follow [amberblade's](https://github.com/amberblade/wa
 Install [PyTorch](https://github.com/pytorch/pytorch#installation) v1.0 or higher.
 
 From within a new warp-ctc clone you could build WarpCTC like this:
+
 ```cmd
 git clone -b vs2017 https://github.com/hzli-ucas/warp-ctc.git
 cd warp-ctc
 mkdir build
 cd build
-cmake -G "Visual Studio 15 2017 Win64" ..
+cmake ..
 ```
-If using vs2015 instead of vs2017 for building, replace the `cmake -G "Visual Studio 15 2017 Win64" ..` with `cmake -G "Visual Studio 14 2015 Win64" ..`.
+
+~~cmake -G "Visual Studio 15 2017 Win64" ..~~
+
+If using vs2015 instead of vs2017 for building, replace the `cmake -G "Visual Studio 15 2017 Win64" ..` with `cmake -G "Visual Studio 14 2015 Win64" ..` or  `cmake -G "Visual Studio 16 2019" ..`.
+
+For VS2019 also works good simple:  `cmake ..`.
 
 Open the `warp-ctc/build/ctc_release.sln` with vs2017, and build the project `ALL_BUILD` (Release x64). Then install the bindings:
+
 ```cmd
 cd ../pytorch_binding
 python setup.py install
 ```
 
-At last, copy `warp-ctc/build/Release/warpctc.dll` to the path where you install the warpctc. For example, for the installation performed with Anaconda3 within an environment named "pytorch", the path oughts to be: `Anaconda3/envs/pytorch/Lib/site-packages/warpctc_pytorch-0.1-py3.7-win-amd64.egg/warpctc_pytorch/`
+You could possibly get errors in "Test" project - try to unload them.
+
+Go to [Specific Modifications](#specific-modifications) if you got issues, then return here.
+
+At last, copy `warp-ctc/build/Release/warpctc.dll` to the path where you install the warpctc. For example, for the installation performed with Anaconda3 within an environment named "pytorch", the path oughts to be: `Anaconda3/envs/pytorch/Lib/site-packages/warpctc_pytorch-0.1-py3.7-win-amd64.egg/warpctc_pytorch/` .
+Another example: `virtualenv\pytorch38\Lib\site-packages\warpctc_pytorch-0.1-py3.8-win-amd64.egg\`
+
+Go to [Specific Modifications](#specific-modifications) if you got issues, then return here.
 
 You could use the following commands to check that warpctc_pytorch has been successfully installed:
+
 ```cmd
 python tests/test_cpu.py
 python tests/test_gpu.py
@@ -54,7 +82,7 @@ cost.backward()
 
 ## Documentation
 
-```
+``` python
 CTCLoss(size_average=False, length_average=False)
     # size_average (bool): normalize the loss by the batch size (default: False)
     # length_average (bool): normalize the loss by the total number of frames in the batch. If True, supersedes size_average (default: False)
@@ -68,7 +96,10 @@ forward(acts, labels, act_lens, label_lens)
 
 ## Specific Modifications
 
-***When build the project with vs2017, there might be***
+Made by [amberblade's](https://github.com/amberblade/warp-ctc)
+and [hzli-ucas](https://github.com/hzli-ucas/warp-ctc)
+
+***When build the project with vs2017 (and 2019), there might be***
 
 ***
 ```
