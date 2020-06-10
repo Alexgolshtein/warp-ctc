@@ -28,7 +28,7 @@ From within a new warp-ctc clone you could build WarpCTC like this:
 You may clone the original repo (git clone https://github.com/SeanNaren/warp-ctc.git) and follow the next steps or clone thes repo.
 
 ```cmd
-git clone https://github.com/Alexgolshtein/warp-ctc.git
+git clone -b vs2017 https://github.com/Alexgolshtein/warp-ctc.git
 cd warp-ctc
 mkdir build
 cd build
