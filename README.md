@@ -2,7 +2,7 @@
 
 ## Based on [SeanNaren/warp-ctc](https://github.com/SeanNaren/warp-ctc)
 
-## Moified by isses in [hzli-ucas/warp-ctc](https://github.com/hzli-ucas/warp-ctc) description
+## Modified by isses in [hzli-ucas/warp-ctc](https://github.com/hzli-ucas/warp-ctc) description
 
 ## Sucessfully built with: Win10 cuda10.2 pip3 python3.8 pytorch 1.5 VS2019(with c++)
 
