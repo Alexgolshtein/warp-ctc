@@ -25,7 +25,7 @@ Install [PyTorch](https://github.com/pytorch/pytorch#installation) v1.0 or highe
 
 From within a new warp-ctc clone you could build WarpCTC like this:
 
-You may clone the original repo (git clone https://github.com/SeanNaren/warp-ctc.git) and follow the nex steps or clone thes repo.
+You may clone the original repo (git clone https://github.com/SeanNaren/warp-ctc.git) and follow the next steps or clone thes repo.
 
 ```cmd
 git clone https://github.com/Alexgolshtein/warp-ctc.git
