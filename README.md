@@ -35,13 +35,11 @@ cd build
 cmake ..
 ```
 
-~~cmake -G "Visual Studio 15 2017 Win64" ..~~
+cmake -G "Visual Studio 16 2019" -A x64 ..
 
-If using vs2015 instead of vs2017 for building, replace the `cmake -G "Visual Studio 15 2017 Win64" ..` with `cmake -G "Visual Studio 14 2015 Win64" ..` or  `cmake -G "Visual Studio 16 2019" ..`.
+If using vs2015 instead of vs2017 for building, replace the `cmake -G "Visual Studio 15 2017 Win64" ..` with `cmake -G "Visual Studio 14 2015 Win64" ..` or  `cmake -G "Visual Studio 16 2019" -A x64 ..`.
 
-For VS2019 also works good simple:  `cmake ..`.
-
-Open the `warp-ctc/build/ctc_release.sln` with vs2017, and build the project `ALL_BUILD` (Release x64). Then install the bindings:
+Open the `warp-ctc/build/ctc_release.sln` with vs2019, and build the project `ALL_BUILD` (Release x64). Then install the bindings:
 
 ```cmd
 cd ../pytorch_binding
