@@ -50,8 +50,10 @@ You could possibly get errors in "Test" project - try to unload them.
 
 Go to [Specific Modifications](#specific-modifications) if you got issues, then return here.
 
-At last, copy `warp-ctc/build/Release/warpctc.dll` to the path where you install the warpctc. For example, for the installation performed with Anaconda3 within an environment named "pytorch", the path oughts to be: `Anaconda3/envs/pytorch/Lib/site-packages/warpctc_pytorch-0.1-py3.7-win-amd64.egg/warpctc_pytorch/` .
-Another example: `virtualenv\pytorch38\Lib\site-packages\warpctc_pytorch-0.1-py3.8-win-amd64.egg\`
+Set CUDA_HOME and CUDA_PATH in system env vars to your cuda toolkit installation dir in "Proigram files", for example: C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2
+You can set the WARP_CTC_PATH in system env vars to any directory and place in it the warpctc.dll (You can find it in \warp-ctc\build\Release). If you don't - you could get an exception "Could not find warpctc.dll in {}.\n". You can find another fix of this issue in [Specific Modifications](#specific-modifications) .
+
+At last, copy `warp-ctc/build/Release/warpctc.dll` to the path where you install the warpctc. For example, for the installation performed with Anaconda3 within an environment named "pytorch", the path oughts to be: `Anaconda3/envs/pytorch/Lib/site-packages/warpctc_pytorch-0.1-py3.8-win-amd64.egg/warpctc_pytorch/` .
 
 Go to [Specific Modifications](#specific-modifications) if you got issues, then return here.
 
@@ -114,6 +116,24 @@ change `ctc_entrypoint.cpp` to `#include "ctc_entrypoint.cpp"`
 ```
 `warp-ctc/CMakeLists.txt`: 
 comment out `set(CUDA_NVCC_FLAGS "${CUDA_NVCC_FLAGS} -gencode arch=compute_70,code=sm_70")`
+
+Also check this list 
+```
+// GTX 1080, GTX 1070, GTX 1060, GTX 1050, GTX 1030, Titan Xp, Tesla P40, Tesla P4
+// -arch=compute_61 -code=sm_61
+
+// Tesla V100
+// -arch=compute_70 -code=[sm_70,compute_70]
+
+// GP100/Tesla P100 – DGX-1
+// -arch=compute_60 -code=sm_60
+
+// Jetson Tx1
+// -arch=compute_51 -code=[sm_51,compute_51]
+
+// Jetson Tx2 or Drive-PX2
+// -arch=compute_62 -code=[sm_62,compute_62]
+```
 ***
 
 ```
